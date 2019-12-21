@@ -4,10 +4,12 @@
 文章地址：https://www.cnblogs.com/mu---mu/p/FaceRecognition-tensorflow.html
 Github地址：https://github.com/seathiefwang/FaceRecognition-tensorflow
 ##################################################################
+
 我做的修改
+
 1 为了兼容 Tensorflow 2.0. 修改了Tensorflow的引用代码：
-import tensorflow.compat.v1 as tf
-tf.disable_v2_behavior()
+        import tensorflow.compat.v1 as tf
+        tf.disable_v2_behavior()
 
 2 按照原著者的建议，修改了is_my_face.py部分语句导致的Saver_path报错：
         
