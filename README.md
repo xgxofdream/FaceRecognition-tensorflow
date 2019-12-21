@@ -10,9 +10,13 @@ import tensorflow.compat.v1 as tf
 tf.disable_v2_behavior()
 
 2 按照原著者的建议，修改了is_my_face.py部分语句导致的Saver_path报错：
-#saver = tf.train.Saver()  
-#sess = tf.Session()  
-#saver.restore(sess, tf.train.latest_checkpoint('.'))  
+
+    
+    
+       
+    #saver = tf.train.Saver()  
+    #sess = tf.Session()  
+    #saver.restore(sess, tf.train.latest_checkpoint('.'))  
 
 init_op = tf.initialize_all_variables() 
 saver = tf.train.Saver() 
@@ -21,9 +25,6 @@ with tf.Session() as sess:
     save_path = saver.save(sess, "./tmp/model.ckpt")
     #print "Model saved in file: ",save_path
     saver.restore(sess, "./tmp/model.ckpt")
-    
-    
-       
     def is_my_face(image):  
         res = sess.run(predict, feed_dict={x: [image/255.0], keep_prob_5:1.0, keep_prob_75: 1.0})  
         if res[0] == 1:  
